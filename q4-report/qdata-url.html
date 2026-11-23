@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>经营数据中心 · 本期数据</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:700px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ h1{font-size:18px;border-bottom:2px solid #1d4ed8;padding-bottom:8px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;font-size:14px;line-height:1.9}
+ .kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #eef2f7}
+</style></head><body>
+<h1>经营数据中心 · 本期数据</h1>
+<div class="card">
+  <div class="kv"><span>报告期</span><b>2026 Q4（截至 11-22）</b></div>
+  <div class="kv"><span>营业收入</span><b id="rev">—</b></div>
+  <div class="kv"><span>毛利率</span><b id="mar">—</b></div>
+  <div class="kv"><span>净利润</span><b id="pro">—</b></div>
+  <div class="kv"><span>数据状态</span><b>已结账（待报出）</b></div>
+</div>
+<script>
+// 从 URL 查询串解析（内部报表系统常见做法：报表链接自带数据快照）
+var p = new URLSearchParams(location.search).get('d') || '';
+var parts = p.split('|');
+if (parts.length >= 3) {
+  document.getElementById('rev').textContent = parts[0] + ' 元';
+  document.getElementById('mar').textContent = parts[1];
+  document.getElementById('pro').textContent = parts[2] + ' 元';
+}
+</script></body></html>
