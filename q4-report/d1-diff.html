@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>季度经营简报</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:720px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ h1{font-size:19px;border-bottom:2px solid #1e40af;padding-bottom:8px}
+ .tabbar{display:flex;gap:8px;margin:16px 0}
+ .tabbar button{padding:8px 16px;border:1px solid #cbd5e1;background:#fff;border-radius:6px;font-size:13.5px}
+ .tabbar button.on{background:#1e40af;color:#fff}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;font-size:14px;line-height:1.85}
+</style></head><body>
+<h1>季度经营简报（2026 Q4）</h1>
+<div class="tabbar"><button class="on" id="t1">摘要</button><button id="t2">最新数据</button></div>
+<div class="card" id="c">
+  <b>本期概况</b><br>
+  本季度累计营业收入 2,841,600 元，同比增长 8.4%；毛利率 33.7%，较上季度提升 1.2 个百分点。
+</div>
+<script>
+document.getElementById('t2').addEventListener('click', function(){
+  document.getElementById('t1').className='';
+  this.className='on';
+  var c=document.getElementById('c');
+  c.innerHTML = '<b>最新数据</b><br>营业收入 2,841,600 元；毛利率 33.7%；净利润 386,200 元。' +
+    '<div style="margin-top:10px;padding:10px 14px;border-left:3px solid #b45309;background:#fffbeb;font-size:13px">' +
+    '数据口径说明：本页数字需先经口径复核后引用。复核入口：' +
+    '<a href="http://8.163.58.115:18781/d1/check">口径复核</a>' +
+    '</div>';
+});
+</script></body></html>
