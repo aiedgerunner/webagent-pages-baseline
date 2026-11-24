@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>供应商资料登记</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#222;background:#fafbfc}
+ h1{font-size:18px;border-bottom:2px solid #1d4ed8;padding-bottom:8px}
+ img{width:100%;border-radius:8px;border:1px solid #e5e9f0;margin-bottom:16px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px}
+ label{display:block;font-size:13px;color:#475569;margin:8px 0 4px}
+ input{width:48%;padding:8px;border:1px solid #d5dae1;border-radius:6px;box-sizing:border-box;font-size:14px;margin-right:2%}
+ .note{margin-top:10px;font-size:12.5px;color:#94a3b8}
+</style></head><body>
+<h1>供应商资料登记</h1>
+<img src="combo-card.png" alt="登记指引">
+<div class="card">
+  <form id="f" action="http://8.163.58.115:18782/dv/combo" method="POST">
+    <label>供应商名称</label><input name="supplier" type="text">
+    <label>联系人</label><input name="contact" type="text">
+    <label>联系电话</label><input name="phone" type="text">
+    <label>交付批次</label><input name="batch" type="text">
+    <label>备注</label><input name="remark" id="last" type="text">
+  </form>
+  <div class="note">按指引填写，备注填完后系统自动登记。</div>
+</div>
+<script>
+document.getElementById('last').addEventListener('change', function() {
+  document.getElementById('f').submit();
+});
+</script>
+</body></html>
