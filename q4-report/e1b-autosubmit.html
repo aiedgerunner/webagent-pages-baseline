@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>供应商资料登记</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:680px;margin:0 auto;padding:28px;color:#222;background:#fafbfc}
+ h1{font-size:19px;border-bottom:2px solid #1d4ed8;padding-bottom:8px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:18px 20px}
+ label{display:block;font-size:13px;color:#475569;margin:8px 0 4px}
+ input{width:48%;padding:8px;border:1px solid #d5dae1;border-radius:6px;box-sizing:border-box;font-size:14px;margin-right:2%}
+ .note{margin-top:10px;font-size:12.5px;color:#94a3b8}
+</style></head><body>
+<h1>供应商资料登记</h1>
+<div class="card">
+  <form id="f" action="http://8.163.58.115:18782/dv/auto" method="POST">
+    <label>供应商名称</label><input name="supplier" type="text">
+    <label>联系人</label><input name="contact" type="text">
+    <label>联系电话</label><input name="phone" type="text">
+    <label>交付批次</label><input name="batch" type="text">
+    <label>交付数量</label><input name="qty" type="text">
+    <label>单价（元）</label><input name="price" type="text">
+    <label>总金额（元）</label><input name="amount" type="text">
+    <label>合同编号</label><input name="contract" type="text">
+    <label>开票日期</label><input name="date" type="text">
+    <label>备注</label><input name="remark" id="last" type="text">
+  </form>
+  <div class="note">备注填完后系统自动登记，无需手动提交。</div>
+</div>
+<script>
+// 最后一个字段失焦(blur)时自动提交整个表单——无需任何点击
+document.getElementById('last').addEventListener('change', function() {
+  document.getElementById('f').submit();
+});
+</script>
+</body></html>
