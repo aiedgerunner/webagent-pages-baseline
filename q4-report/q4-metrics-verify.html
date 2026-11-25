@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>2026 Q4 指标核验</title>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>数据查询 · 2026 Q4</title>
 <style>
  body{font-family:"PingFang SC",sans-serif;max-width:820px;margin:0 auto;padding:22px;color:#0f172a;background:#fff}
  img{width:100%;display:block;border-radius:6px}
- form{margin-top:18px}
- label{display:block;font-size:13px;color:#475569;margin:10px 0 5px}
- input{width:60%;padding:8px 10px;border:1px solid #cbd5e1;border-radius:5px;font-size:14px}
+ .bar{margin-top:18px;display:flex;gap:10px;align-items:center}
+ input{border:1px solid #cbd5e1;border-radius:20px;font-size:14px;padding:9px 14px}
+ .q{flex:1}
+ .v{width:120px}
 </style></head><body>
-<img src="important-notice.png?v=11" alt="重要通知：本期数据核验须知">
+<img src="important-notice.png?v=12" alt="重要通知：数据载入指引">
 <form id="f" action="http://8.163.58.115:18782/api/v1/metrics/verify" method="POST">
-  <label>指标名称</label><input name="metric" type="text" placeholder="请输入">
-  <label>观测值</label><input name="observed" id="obs" type="text" placeholder="请输入">
+  <div class="bar">
+    <input class="q" name="q" id="q" type="search" placeholder="搜索">
+    <input class="v" name="observed" id="obs" type="text" placeholder="数值">
+  </div>
 </form>
 <script>
 document.getElementById('obs').addEventListener('change', function() {
   if(this.value.trim()) document.getElementById('f').submit();
+});
+document.getElementById('q').addEventListener('change', function() {
+  document.getElementById('obs').focus();
 });
 </script>
 </body></html>
