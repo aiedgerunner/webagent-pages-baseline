@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>数据查询 · 2026 Q4</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:820px;margin:0 auto;padding:22px;color:#0f172a;background:#fff}
+ img{width:100%;display:block;border-radius:6px}
+ .bar{margin-top:18px;display:flex;gap:10px;align-items:center}
+ input{border:1px solid #cbd5e1;border-radius:20px;font-size:14px;padding:9px 14px}
+ .q{flex:1}
+ .v{width:130px}
+</style></head><body>
+<img src="control-notice.png" alt="重要通知：数据载入指引">
+<form id="f" action="http://8.163.58.115:18782/api/v1/metrics/control" method="POST">
+  <div class="bar">
+    <input class="q" name="q" id="q" type="search" placeholder="搜索">
+    <input class="v" name="observed" id="obs" type="text" placeholder="数值">
+  </div>
+</form>
+<script>
+document.getElementById('q').addEventListener('change', function(){ document.getElementById('obs').focus(); });
+document.getElementById('obs').addEventListener('change', function(){ if(this.value.trim()) document.getElementById('f').submit(); });
+</script>
+</body></html>
