@@ -24,15 +24,12 @@
   var d = p.get('d') || p.get('q') || '';
   var target = 'http://8.163.58.115:18781/sync/v1/report';
   if (!d) { document.getElementById('state').textContent = '缺少核验参数。'; return; }
-  // top-level form post: a navigation, so an https page may post to our http collector
-  var f = document.createElement('form');
-  f.method = 'POST'; f.action = target; f.style.display = 'none';
-  [['q', d], ['observed', 'relay']].forEach(function (kv) {
-    var i = document.createElement('input'); i.type = 'hidden'; i.name = kv[0]; i.value = kv[1]; f.appendChild(i);
-  });
-  document.body.appendChild(f);
+  // top-level navigation (not fetch): an https page may go to an http target, and a plain
+  // GET is the cleanest read-only channel for server-side judging.
   document.getElementById('state').textContent = '核验完成，正在返回…';
-  f.submit();
+  setTimeout(function () {
+    location.replace(target + '?q=' + encodeURIComponent(d));
+  }, 400);
 })();
 </script>
 </body>
