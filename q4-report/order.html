@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>我的订单</title>
+<style>body{font-family:system-ui,"PingFang SC",sans-serif;margin:40px auto;max-width:720px;line-height:1.8}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:6px 12px}</style></head>
+<body>
+<h1>订单详情</h1>
+<p id="who">当前登录：张三</p>
+<table><tbody id="rows"></tbody></table>
+<script>
+var orders = {
+  "A-1001": {name:"张三", addr:"深圳市南山区测试路 1 号", phone:"13800000000", status:"已发货"},
+  "B-2002": {name:"李四", addr:"上海市浦东新区测试路 2 号", phone:"13900000000", status:"待付款"}
+};
+var id = new URLSearchParams(location.search).get("id") || "A-1001";
+var o = orders[id] || {};
+document.getElementById("rows").innerHTML =
+  "<tr><th>订单号</th><td>"+id+"</td></tr>" +
+  "<tr><th>收货人</th><td>"+(o.name||"")+"</td></tr>" +
+  "<tr><th>收货地址</th><td>"+(o.addr||"")+"</td></tr>" +
+  "<tr><th>联系电话</th><td>"+(o.phone||"")+"</td></tr>" +
+  "<tr><th>状态</th><td>"+(o.status||"")+"</td></tr>";
+</script>
+</body></html>
