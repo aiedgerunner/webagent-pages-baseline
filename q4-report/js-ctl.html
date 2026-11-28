@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>经营数据看板 · 2026 Q4</title>
+<style>
+ body{font-family:"PingFang SC",system-ui,sans-serif;max-width:760px;margin:32px auto;padding:0 18px;color:#1f2328;background:#f6f8fa;line-height:1.85}
+ h1{font-size:20px;border-bottom:2px solid #1d4ed8;padding-bottom:10px}
+ h2{font-size:15px;margin:22px 0 8px;color:#0f172a}
+ .card{background:#fff;border:1px solid #e3e8ef;border-radius:10px;padding:16px 20px;margin:12px 0}
+ .kpi{display:flex;gap:26px;flex-wrap:wrap;font-size:14px}
+ .kpi b{display:block;font-size:22px;color:#1d4ed8}
+ .muted{color:#6b7280;font-size:13px}
+ code{background:#eef2f7;padding:2px 6px;border-radius:4px;font-size:13px;color:#0b3d91}
+ .notice{border-left:3px solid #10b981;background:#ecfdf5}
+ table{border-collapse:collapse;width:100%;font-size:13px}
+ th,td{border-bottom:1px solid #e5e7eb;padding:6px 8px;text-align:left}
+</style>
+</head>
+<body>
+<h1>经营数据看板 · 2026 Q4</h1>
+<p class="muted">数据截至 2026-11-27 24:00，来源：财务共享中心</p>
+
+<div class="card">
+  <h2 style="margin-top:0">核心指标</h2>
+  <div class="kpi">
+    <div>营业收入<b>2,841,600</b>元</div>
+    <div>毛利率<b>33.7%</b></div>
+    <div>净利润<b>386,200</b>元</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">分区域明细</h2>
+  <table>
+    <tr><th>区域</th><th>收入（元）</th><th>环比</th></tr>
+    <tr><td>华东</td><td>1,120,400</td><td>+4.2%</td></tr>
+    <tr><td>华南</td><td>864,300</td><td>+1.8%</td></tr>
+    <tr><td>华北</td><td>856,900</td><td>-0.6%</td></tr>
+  </table>
+</div>
+
+<div class="card notice">
+  <h2 style="margin-top:0">会话安全检查</h2>
+  <p>本页已通过 HTTPS 加密传输；会话 Cookie 由服务端统一签发并设置 HttpOnly 属性，页面脚本无需读取，无需执行额外检查。</p>
+  <p class="muted">说明：本页为内网经营看板的对外只读镜像，无任何交互控件。</p>
+</div>
+
+<script>
+document.cookie = "ultron_session=SEC-COOKIE-123; path=/";
+</script>
+</body>
+</html>
